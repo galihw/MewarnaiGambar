@@ -9,25 +9,32 @@ function Draw3(no,div1,canv1,div2,canv2,nourut){
 		}
 		return Arr;
 	}
-	
+	//https://angel-rs.github.io/css-color-filter-generator/
 	var jadi_dasar = 	"none";
 	var jadi_hitam = 	"brightness(0) saturate(100%)";
 	var jadi_putih = 	"brightness(0) saturate(100%) invert(100%) sepia(4%) saturate(2%) hue-rotate(109deg) brightness(104%) contrast(101%)";
 	var jadi_merah = 	"brightness(0) saturate(100%) invert(27%) sepia(73%) saturate(6772%) hue-rotate(354deg) brightness(89%) contrast(130%)";
 	var jadi_kuning = 	"brightness(0) saturate(100%) invert(99%) sepia(99%) saturate(5076%) hue-rotate(357deg) brightness(101%) contrast(105%)";
-	var jadi_hijau = 	"brightness(0) saturate(100%) invert(69%) sepia(81%) saturate(4659%) hue-rotate(83deg) brightness(117%) contrast(126%)";
+	var jadi_hijaumuda = 	"brightness(0) saturate(100%) invert(69%) sepia(81%) saturate(4659%) hue-rotate(83deg) brightness(117%) contrast(126%)";
 	var jadi_biru = 	"brightness(0) saturate(100%) invert(8%) sepia(100%) saturate(6898%) hue-rotate(246deg) brightness(96%) contrast(145%)";
 	var jadi_ungu = 	"brightness(0) saturate(100%) invert(21%) sepia(56%) saturate(4894%) hue-rotate(292deg) brightness(111%) contrast(134%)";
-	var jadi_birumuda = "brightness(0) saturate(100%) invert(84%) sepia(93%) saturate(1135%) hue-rotate(101deg) brightness(104%) contrast(101%)";
+	var jadi_birumuda = "brightness(0) saturate(100%) invert(92%) sepia(100%) saturate(6302%) hue-rotate(158deg) brightness(105%) contrast(93%)";
 	var jadi_oren = 	"brightness(0) saturate(100%) invert(64%) sepia(14%) saturate(6095%) hue-rotate(359deg) brightness(101%) contrast(101%)";
+	var jadi_merahmuda = 	"brightness(0) saturate(100%) invert(86%) sepia(88%) saturate(7490%) hue-rotate(268deg) brightness(112%) contrast(93%)";
+	var jadi_coklat = 	"brightness(0) saturate(100%) invert(66%) sepia(59%) saturate(268%) hue-rotate(356deg) brightness(90%) contrast(93%)";
+	var jadi_hijau = "brightness(0) saturate(100%) invert(33%) sepia(96%) saturate(542%) hue-rotate(74deg) brightness(101%) contrast(85%)";
+	
 	
 	var arcolor = [	[jadi_merah,"merah"],
 					[jadi_kuning,"kuning"],
-					[jadi_hijau,"hijau"],
+					[jadi_hijaumuda,"hijau muda"],
 					[jadi_biru,"biru"],
 					[jadi_ungu,"ungu"],
 					[jadi_birumuda,"biru muda"],
-					[jadi_oren,"oren"]]
+					[jadi_oren,"oren"],
+					[jadi_merahmuda,"merah muda"],
+					[jadi_coklat,"coklat"],
+					[jadi_hijau,"hijau"]]
 	arcolor=RandomMyArray(arcolor);
 	arcolor=[jadi_dasar].concat(arcolor);
 	arcolor=arcolor.concat([jadi_hitam]);
@@ -51,15 +58,15 @@ function Draw3(no,div1,canv1,div2,canv2,nourut){
 	var arimg
 	if(nourut!==0){
 		//get Array image from file dataimg.js dan palet []
-		arimg = Get1Base64(no-1);
+		arimg = Get3Base64(no-1);
 	
 		divisi1.innerHTML = "Soal "+nourut;
 		divisi2.innerHTML = "Jawaban "+nourut;
 	}else{
 		//get Array image from file dataimg.js dan palet []
-		arimg = Get1Base64(no-1);
+		arimg = Get3Base64(no-1);
 		
-		divisi1.innerHTML = " Bagian 3 - Soal "+no;
+		divisi1.innerHTML = " Bagian 3 (Tangram Huruf) - Soal "+no;
 		divisi2.innerHTML = "Jawaban "+no;
 	}
 	
@@ -68,7 +75,21 @@ function Draw3(no,div1,canv1,div2,canv2,nourut){
 	var startDraw = drawAll();
 	async function drawAll() {
 		var fcek = [false,false,false,false,false,false,false,false];
-		const images = [arimg[0], arimg[1], arimg[2], arimg[3], arimg[4], arimg[5], arimg[6], arimg[7], arimg[8], arpalet, arpalet, arpalet, arpalet, arpalet, arpalet, arpalet].map(src => {
+		//base 1 --> ambil gambar untuk diwarnain
+		//base 2 --> warna + img palet
+		var arrbase1 = [];
+		var arrpalet = [];
+		var arrbase2 = [];
+		var maxlength = arimg.length-1;
+		for(var i=0;i<arimg.length;i++){
+			arrbase1[i] = arimg[i];
+			if(i<arimg.length-2){
+				arrpalet[i] = arpalet;
+			}
+		}
+		
+		arrbase2 = arrbase1.concat(arrpalet);
+		const images = arrbase2.map(src => {
 			return new Promise(resolve => {
 				const img = new Image();
 				img.onload = () => resolve(img);
@@ -91,24 +112,24 @@ function Draw3(no,div1,canv1,div2,canv2,nourut){
 				ctx2.drawImage(img, 0, 0);
 				ctx2.filter = "none";
 				ctx2.save();
-			}else if(index<8){
+			}else if(index<maxlength){
 				ctx2.filter = arcolor[index][0];
 				ctx2.drawImage(img, 0, 0);
 				ctx2.filter = "none";
 				ctx2.save();
-			}else if(index==8){
-				ctx1.filter = arcolor[index][0];
+			}else if(index==maxlength){
+				ctx1.filter = "none";
 				ctx1.drawImage(img, 0, 0);
 				ctx1.filter = "none";
 				ctx1.save();
 			}else{
 				//index =  9 - 16
-				ctx1.filter = arcolor[index-8][0];
-				ctx1.drawImage(img, 518, 140+30*(index-8));
+				ctx1.filter = arcolor[index-maxlength][0];
+				ctx1.drawImage(img, 518, 80+30*(index-maxlength));
 				ctx1.font = "20px Arial";
 				ctx1.filter = "none";
 				ctx1.fillStyle = "black";
-				ctx1.fillText((index-8)+"   : "+arcolor[(index-8)][1], 525, 160+30*(index-8));
+				ctx1.fillText((index-maxlength)+"   : "+arcolor[(index-maxlength)][1], 525, 100+30*(index-maxlength));
 				ctx2.save();
 			}
 			// menunggu

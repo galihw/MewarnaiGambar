@@ -192,6 +192,24 @@
 							<td><button id="btnno15" class="model" onclick="MasukNo(15)">15</button></td>
 							<td><button id="btnno16" class="model" onclick="MasukNo(16)">16</button></td>
 						</tr>
+						<tr>
+							<td><button id="btnno17" class="model" onclick="MasukNo(17)">17</button></td>
+							<td><button id="btnno18" class="model" onclick="MasukNo(18)">18</button></td>
+							<td><button id="btnno19" class="model" onclick="MasukNo(19)">19</button></td>
+							<td><button id="btnno20" class="model" onclick="MasukNo(20)">20</button></td>
+						</tr>
+						<tr>
+							<td><button id="btnno21" class="model" onclick="MasukNo(21)">21</button></td>
+							<td><button id="btnno22" class="model" onclick="MasukNo(22)">22</button></td>
+							<td><button id="btnno23" class="model" onclick="MasukNo(23)">23</button></td>
+							<td><button id="btnno24" class="model" onclick="MasukNo(24)">24</button></td>
+						</tr>
+						<tr>
+							<td><button id="btnno25" class="model" onclick="MasukNo(25)">25</button></td>
+							<td><button id="btnno26" class="model" onclick="MasukNo(26)">26</button></td>
+							<td><button id="btnno27" class="model" onclick="MasukNo(27)">27</button></td>
+							<td><button id="btnno28" class="model" onclick="MasukNo(28)">28</button></td>
+						</tr>
 					</article>
 				</section>
 				<p></p>
@@ -279,7 +297,7 @@
 						}
 					}
 					function ButtonShowNo(nMax){
-						for(var i=1;i<=16;i++){
+						for(var i=1;i<=28;i++){
 							var element=document.getElementById("btnno"+i);
 							if(i>nMax){
 								//element.setAttribute("hidden", "hidden");
@@ -410,12 +428,14 @@
 			</div>
 		</div>
 		<script type="text/javascript" src="dataimg1.js"></script>
+		<script type="text/javascript" src="dataimg2.js"></script>
+		<script type="text/javascript" src="dataimg3.js"></script>
 		<script type="text/javascript" src="Draw1.js"></script>
 		<script type="text/javascript" src="Draw2.js"></script>
 		<script type="text/javascript" src="Draw3.js"></script>
 		<script type="text/javascript">
 			
-			var arBabNo = [16,3,5];
+			var arBabNo = [16,16,26];
 			var nBab = 1;
 			var nNo = 1;
 			var maxBab=3;// <Tangram>; maks 3
