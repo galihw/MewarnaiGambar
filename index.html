@@ -161,6 +161,7 @@
 							<td><button id="btn1" class="model" onclick="MasukBab(1)">01</button></td>
 							<td><button id="btn2" class="model" onclick="MasukBab(2)">02</button></td>
 							<td><button id="btn3" class="model" onclick="MasukBab(3)">03</button></td>
+							<td><button id="btn4" class="model" onclick="MasukBab(4)">04</button></td>
 						</tr>
 					</article>
 				</section>
@@ -287,7 +288,7 @@
 					}
 					function ButtonShow(nMax){
 						// button bab - <=nMax show - > nMax hide
-						for(var i=1;i<=3;i++){
+						for(var i=1;i<=4;i++){
 							var element=document.getElementById("btn"+i);
 							if(i>nMax){
 								element.setAttribute("hidden", "hidden");
@@ -430,24 +431,26 @@
 		<script type="text/javascript" src="dataimg1.js"></script>
 		<script type="text/javascript" src="dataimg2.js"></script>
 		<script type="text/javascript" src="dataimg3.js"></script>
+		<script type="text/javascript" src="dataimg4.js"></script>
 		<script type="text/javascript" src="Draw1.js"></script>
 		<script type="text/javascript" src="Draw2.js"></script>
 		<script type="text/javascript" src="Draw3.js"></script>
+		<script type="text/javascript" src="Draw4.js"></script>
 		<script type="text/javascript">
 			
-			var arBabNo = [16,16,26];
+			var arBabNo = [16,16,26,20];
 			var nBab = 1;
 			var nNo = 1;
-			var maxBab=3;// <Tangram>; maks 3
+			var maxBab=4;// <Tangram>; maks 3
 			var maxNo=arBabNo[nBab];
 			var strBab
 			
 			// untuk Kelas-Bab
-			var StringBab = ["1","2","3"
+			var StringBab = ["1","2","3","4"
 							];
 			var fCek = false;
 			
-			var nmPrint = [	Draw1,Draw2,Draw3 ];
+			var nmPrint = [	Draw1,Draw2,Draw3,Draw4 ];
 			var np = 0;
 			var no = 0;
 			var ArrAmbil = [];

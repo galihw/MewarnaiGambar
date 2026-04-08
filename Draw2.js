@@ -126,10 +126,13 @@ function Draw2(no,div1,canv1,div2,canv2,nourut){
 				//index =  9 - 16
 				ctx1.filter = arcolor[index-maxlength][0];
 				ctx1.drawImage(img, 518, 80+30*(index-maxlength));
-				ctx1.font = "20px Arial";
+				ctx1.font = "18px Arial";
 				ctx1.filter = "none";
 				ctx1.fillStyle = "black";
-				ctx1.fillText((index-maxlength)+"   : "+arcolor[(index-maxlength)][1], 525, 100+30*(index-maxlength));
+				ctx1.textAlign = "center";
+				ctx1.fillText((index-maxlength),530, 100+30*(index-maxlength));
+				ctx1.textAlign = "left";
+				ctx1.fillText(": "+arcolor[(index-maxlength)][1], 530+25, 100+30*(index-maxlength));
 				ctx2.save();
 			}
 			// menunggu

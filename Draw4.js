@@ -1,4 +1,4 @@
-function Draw3(no,div1,canv1,div2,canv2,nourut){
+function Draw4(no,div1,canv1,div2,canv2,nourut){
 	function RandomMyArray(Arr){
 		/* ---- RANDOM isi Array ---- */
 		for (var i=0; i<Arr.length; i++){
@@ -58,15 +58,15 @@ function Draw3(no,div1,canv1,div2,canv2,nourut){
 	var arimg
 	if(nourut!==0){
 		//get Array image from file dataimg.js dan palet []
-		arimg = Get3Base64(no-1);
+		arimg = Get4Base64(no-1);
 	
 		divisi1.innerHTML = "Soal "+nourut;
 		divisi2.innerHTML = "Jawaban "+nourut;
 	}else{
 		//get Array image from file dataimg.js dan palet []
-		arimg = Get3Base64(no-1);
+		arimg = Get4Base64(no-1);
 		
-		divisi1.innerHTML = " Bagian 3 (Tangram Huruf) - Soal "+no;
+		divisi1.innerHTML = " Bagian 4 (Mozaik Kaca) - Soal "+no;
 		divisi2.innerHTML = "Jawaban "+no;
 	}
 	
