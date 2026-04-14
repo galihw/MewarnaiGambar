@@ -162,6 +162,8 @@
 							<td><button id="btn2" class="model" onclick="MasukBab(2)">02</button></td>
 							<td><button id="btn3" class="model" onclick="MasukBab(3)">03</button></td>
 							<td><button id="btn4" class="model" onclick="MasukBab(4)">04</button></td>
+							<td><button id="btn5" class="model" onclick="MasukBab(5)">05</button></td>
+							<td><button id="btn6" class="model" onclick="MasukBab(6)">06</button></td>
 						</tr>
 					</article>
 				</section>
@@ -288,7 +290,7 @@
 					}
 					function ButtonShow(nMax){
 						// button bab - <=nMax show - > nMax hide
-						for(var i=1;i<=4;i++){
+						for(var i=1;i<=5;i++){
 							var element=document.getElementById("btn"+i);
 							if(i>nMax){
 								element.setAttribute("hidden", "hidden");
@@ -432,25 +434,30 @@
 		<script type="text/javascript" src="dataimg2.js"></script>
 		<script type="text/javascript" src="dataimg3.js"></script>
 		<script type="text/javascript" src="dataimg4.js"></script>
+		<script type="text/javascript" src="dataimg5.js"></script>
+		<script type="text/javascript" src="dataimg6.js"></script>
+		<script type="text/javascript" src="datakata6.js"></script>
 		<script type="text/javascript" src="Draw1.js"></script>
 		<script type="text/javascript" src="Draw2.js"></script>
 		<script type="text/javascript" src="Draw3.js"></script>
 		<script type="text/javascript" src="Draw4.js"></script>
+		<script type="text/javascript" src="Draw5.js"></script>
+		<script type="text/javascript" src="Draw6.js"></script>
 		<script type="text/javascript">
 			
-			var arBabNo = [16,16,26,20];
+			var arBabNo = [16,16,26,20,10,8];
 			var nBab = 1;
 			var nNo = 1;
-			var maxBab=4;// <Tangram>; maks 3
+			var maxBab=6;// <Tangram>; maks 3
 			var maxNo=arBabNo[nBab];
 			var strBab
 			
 			// untuk Kelas-Bab
-			var StringBab = ["1","2","3","4"
+			var StringBab = ["1","2","3","4","5","6"
 							];
 			var fCek = false;
 			
-			var nmPrint = [	Draw1,Draw2,Draw3,Draw4 ];
+			var nmPrint = [	Draw1,Draw2,Draw3,Draw4,Draw5,Draw6 ];
 			var np = 0;
 			var no = 0;
 			var ArrAmbil = [];
