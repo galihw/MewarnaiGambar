@@ -152,7 +152,7 @@
 			<div class="top">
 				<br>
 				<button class="model" onclick="FuncHome()">Home</button>
-				<h3>Generator Soal SD</h3>
+				<h3>Generator Soal Gambar</h3>
 				<h4>Pilih Bagian dan Nomor</h4>
 				<section>
 					<button class="expand-btn">Bagian</button>
@@ -164,6 +164,7 @@
 							<td><button id="btn4" class="model" onclick="MasukBab(4)">04</button></td>
 							<td><button id="btn5" class="model" onclick="MasukBab(5)">05</button></td>
 							<td><button id="btn6" class="model" onclick="MasukBab(6)">06</button></td>
+							<td><button id="btn7" class="model" onclick="MasukBab(7)">07</button></td>
 						</tr>
 					</article>
 				</section>
@@ -290,12 +291,14 @@
 					}
 					function ButtonShow(nMax){
 						// button bab - <=nMax show - > nMax hide
-						for(var i=1;i<=5;i++){
+						for(var i=1;i<=7;i++){
 							var element=document.getElementById("btn"+i);
 							if(i>nMax){
-								element.setAttribute("hidden", "hidden");
+								//element.setAttribute("hidden", "hidden");
+								element.disabled = true;
 							}else{
-								element.removeAttribute("hidden");
+								//element.removeAttribute("hidden");
+								element.disabled = false;
 							}
 						}
 					}
@@ -436,6 +439,7 @@
 		<script type="text/javascript" src="dataimg4.js"></script>
 		<script type="text/javascript" src="dataimg5.js"></script>
 		<script type="text/javascript" src="dataimg6.js"></script>
+		<script type="text/javascript" src="dataimg7.js"></script>
 		<script type="text/javascript" src="datakata6.js"></script>
 		<script type="text/javascript" src="Draw1.js"></script>
 		<script type="text/javascript" src="Draw2.js"></script>
@@ -443,21 +447,22 @@
 		<script type="text/javascript" src="Draw4.js"></script>
 		<script type="text/javascript" src="Draw5.js"></script>
 		<script type="text/javascript" src="Draw6.js"></script>
+		<script type="text/javascript" src="Draw7.js"></script>
 		<script type="text/javascript">
 			
-			var arBabNo = [16,16,26,20,10,8];
+			var arBabNo = [16,16,26,20,10,8,18];
 			var nBab = 1;
 			var nNo = 1;
-			var maxBab=6;// <Tangram>; maks 3
+			var maxBab=7;// <Tangram>; maks 3
 			var maxNo=arBabNo[nBab];
 			var strBab
 			
 			// untuk Kelas-Bab
-			var StringBab = ["1","2","3","4","5","6"
+			var StringBab = ["1","2","3","4","5","6","7"
 							];
 			var fCek = false;
 			
-			var nmPrint = [	Draw1,Draw2,Draw3,Draw4,Draw5,Draw6 ];
+			var nmPrint = [	Draw1,Draw2,Draw3,Draw4,Draw5,Draw6,Draw7 ];
 			var np = 0;
 			var no = 0;
 			var ArrAmbil = [];
@@ -704,7 +709,7 @@
 				}
 				function funcUlang(){
 					// F5
-					window.parent.location.href="GeneratorSoalMewarnai.html";
+					window.parent.location.href="index.html";
 				}
 			}
 			function hidingElemen(elem){
